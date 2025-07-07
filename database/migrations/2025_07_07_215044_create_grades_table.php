@@ -13,13 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('grades', function (Blueprint $table) {
             $table->id();
-             $table->string('name');
-            $table->string('email')->unique();
-            $table->string('password');
-            $table->enum('role', ['admin', 'student', 'teacher', 'guardian']);
-            $table->rememberToken();
+            $table->foreignId('class_id')->constrained('school_classes')->onDelete('cascade');
+            $table->string('label');
+            $table->decimal('amount', 10, 2);
+            $table->date('due_date');
+            $table->string('school_year');
             $table->timestamps();
         });
     }
@@ -31,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('grades');
     }
 };
