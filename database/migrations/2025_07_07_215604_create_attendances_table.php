@@ -15,11 +15,16 @@ return new class extends Migration
     {
         Schema::create('attendances', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('student_id')->constrained()->onDelete('cascade');
-            $table->foreignId('class_id')->constrained('school_classes')->onDelete('cascade');
             $table->date('date');
             $table->enum('status', ['present', 'absent', 'late']);
+            // $table->foreignId('class_id')->constrained('school_classes')->onDelete('cascade');
+            // $table->foreignId('student_id')->constrained()->onDelete('cascade');
+            $table->unsignedBigInteger('class_id')->nullable();
+            $table->unsignedBigInteger('student_id')->nullable();
             $table->timestamps();
+            $table->foreign('class_id')->references('id')->on('school_classes')->onDelete('cascade');
+            $table->foreign('student_id')->references('id')->on('students')->onDelete('cascade');
+       
         });
     }
 

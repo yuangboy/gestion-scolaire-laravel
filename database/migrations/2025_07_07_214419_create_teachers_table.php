@@ -15,11 +15,16 @@ return new class extends Migration
     {
         Schema::create('teachers', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained()->onDelete('cascade');
-            $table->foreignId('subject_id')->nullable()->constrained()->onDelete('set null');
             $table->string('phone');
             $table->string('address');
-            $table->timestamps();
+            // $table->foreignId('subject_id')->nullable()->constrained()->onDelete('set null');
+            // $table->foreignId('user_id')->constrained()->onDelete('cascade');
+          
+            $table->unsignedBigInteger('subject_id')->nullable();
+           $table->unsignedBigInteger('user_id')->nullable();
+           $table->timestamps();
+           $table->foreign('subject_id')->references('id')->on('subjects')->onDelete('cascade');
+           $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 
