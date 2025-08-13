@@ -15,12 +15,12 @@ return new class extends Migration
     {
         Schema::create('students', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->string('matricule')->unique();
             $table->enum('gender', ['male', 'female']);
             $table->date('date_of_birth');
-            $table->foreignId('class_id')->constrained('school_classes')->onDelete('set null')->nullable();
-            $table->foreignId('guardian_id')->nullable()->constrained('users')->onDelete('set null');
+            // $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            // $table->foreignId('class_id')->constrained('school_classes')->onDelete('set null')->nullable();
+            // $table->foreignId('guardian_id')->nullable()->constrained('users')->onDelete('set null');
             $table->timestamps();
         });
     }

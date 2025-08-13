@@ -15,9 +15,9 @@ return new class extends Migration
     {
         Schema::create('enrollments', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('student_id')->constrained()->onDelete('cascade');
-            $table->foreignId('class_id')->constrained('school_classes')->onDelete('cascade');
             $table->string('school_year');
+            // $table->foreignId('student_id')->constrained()->onDelete('cascade');
+            // $table->foreignId('class_id')->constrained('school_classes')->onDelete('cascade');
             $table->timestamps();
         });
     }

@@ -15,11 +15,11 @@ return new class extends Migration
     {
         Schema::create('fees', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('class_id')->constrained('school_classes')->onDelete('cascade');
             $table->string('label');
             $table->decimal('amount', 10, 2);
             $table->date('due_date');
             $table->string('school_year');
+            // $table->foreignId('class_id')->constrained('school_classes')->onDelete('cascade');
             $table->timestamps();
         });
     }

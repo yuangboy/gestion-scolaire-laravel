@@ -15,10 +15,10 @@ return new class extends Migration
     {
         Schema::create('teachers', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained()->onDelete('cascade');
-            $table->foreignId('subject_id')->nullable()->constrained()->onDelete('set null');
             $table->string('phone');
             $table->string('address');
+            // $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            // $table->foreignId('subject_id')->nullable()->constrained()->onDelete('set null');
             $table->timestamps();
         });
     }
