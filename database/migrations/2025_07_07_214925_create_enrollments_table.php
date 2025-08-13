@@ -15,10 +15,14 @@ return new class extends Migration
     {
         Schema::create('enrollments', function (Blueprint $table) {
             $table->id();
-            $table->string('school_year');
             // $table->foreignId('student_id')->constrained()->onDelete('cascade');
             // $table->foreignId('class_id')->constrained('school_classes')->onDelete('cascade');
-            $table->timestamps();
+          $table->unsignedBigInteger('student_id')->nullable();
+          $table->unsignedBigInteger('class_id')->nullable();
+          $table->string('school_year');
+          $table->timestamps();
+          $table->foreign('student_id')->references('id')->on('students')->onDelete('cascade');
+          $table->foreign('class_id')->references('id')->on('school_classes')->onDelete('cascade');
         });
     }
 

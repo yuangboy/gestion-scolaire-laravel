@@ -20,7 +20,9 @@ return new class extends Migration
             $table->date('due_date');
             $table->string('school_year');
             // $table->foreignId('class_id')->constrained('school_classes')->onDelete('cascade');
+            $table->unsignedBigInteger('class_id')->nullable();
             $table->timestamps();
+            $table->foreign('class_id')->references('id')->on('school_classes')->onDelete('cascade');
         });
     }
 

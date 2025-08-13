@@ -15,12 +15,18 @@ return new class extends Migration
     {
         Schema::create('grades', function (Blueprint $table) {
             $table->id();
-            $table->string('label');
-            $table->decimal('amount', 10, 2);
-            $table->date('due_date');
-            $table->string('school_year');
-            // $table->foreignId('class_id')->constrained('school_classes')->onDelete('cascade');
+            $table->string('term'); // ex: "Trimestre 1", "Semestre 2"
+            $table->float('score'); // note de l'élève
+            $table->text('comment')->nullable(); // commentaire du prof
+            // $table->foreignId('subject_id')->constrained()->onDelete('cascade');
+            // $table->foreignId('enrollment_id')->constrained()->onDelete('cascade');
+           
+            $table->unsignedBigInteger('subject_id')->nullable();
+            $table->unsignedBigInteger('enrollment_id')->nullable();
             $table->timestamps();
+            $table->foreign('subject_id')->references('id')->on('subjects')->onDelete('cascade');
+            $table->foreign('enrollment_id')->references('id')->on('enrollments')->onDelete('cascade');
+       
         });
     }
 
