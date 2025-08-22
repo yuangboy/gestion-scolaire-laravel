@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\GuardianController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,3 +22,19 @@ Route::get('/', function () {
 Route::get('/aa', function () {
     return view('welcome');
 });
+
+
+//Route User
+
+Route::get("/users",[UserController::class,'getAllUsers']);
+Route::get("/user/{id}",[UserController::class,'getUserById']);
+Route::get("/create-user",[UserController::class,'createUser']);
+Route::get("/delete-user/{id}",[UserController::class,'deleteUser']);
+Route::get("/update-user/{id}",[UserController::class,'updateUser']);
+
+
+Route::get("/user-guardian",[UserController::class,'searchGuardian']);
+
+//Route parent
+
+Route::get("/create-guardian",[GuardianController::class,'createGuardian']);
