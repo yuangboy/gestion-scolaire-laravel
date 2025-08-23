@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\GuardianController;
+use App\Http\Controllers\StudentController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\TeacherController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -38,3 +40,9 @@ Route::get("/user-guardian",[UserController::class,'searchGuardian']);
 //Route parent
 
 Route::get("/create-guardian",[GuardianController::class,'createGuardian']);
+
+//Route etudiant
+Route::get("/create-Student",[StudentController::class,'createStudent']);
+
+// Route professeur
+Route::get("/create-Teacher",[TeacherController::class,'createTeacher']);
