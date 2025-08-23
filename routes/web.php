@@ -38,3 +38,12 @@ Route::get("/user-guardian",[UserController::class,'searchGuardian']);
 //Route parent
 
 Route::get("/create-guardian",[GuardianController::class,'createGuardian']);
+
+
+//
+Route::get("/accueil",function(){
+    return view("accueil");
+});
+Route::get("/footer",function(){
+    return view("footer");
+});
