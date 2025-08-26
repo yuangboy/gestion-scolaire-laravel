@@ -2,7 +2,9 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\GuardianController;
+use App\Http\Controllers\StudentController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\TeacherController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -40,18 +42,8 @@ Route::get("/user-guardian",[UserController::class,'searchGuardian']);
 
 Route::get("/create-guardian",[GuardianController::class,'createGuardian']);
 
+//Route etudiant
+Route::get("/create-Student",[StudentController::class,'createStudent']);
 
-// Route authentification
-
-
-Route::get("/register",[AuthController::class,'registerView']);
-Route::post("/register",[AuthController::class,'register'])->name('register');
-
-
-
-Route::get("/login",[AuthController::class,'loginView'])->name('login.view');
-Route::post("/login",[AuthController::class,'login']);
-
-
-Route::get("/logout",[AuthController::class,'logoutView']);
-Route::post("/logout",[AuthController::class,'logout']);
+// Route professeur
+Route::get("/create-Teacher",[TeacherController::class,'createTeacher']);

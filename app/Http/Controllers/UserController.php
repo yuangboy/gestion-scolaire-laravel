@@ -95,7 +95,7 @@ class UserController extends Controller
 
      // Rechercher un parent associer a un utilisateur  (affiche les informations du parent)
        $user=User::findOrFail(15);
-    //    $guardian=$user->guardian;
+        // $guardian=$user->guardian;
     
        //equivaut à cette recherche
        //$guardian=Guardian::find(2);
