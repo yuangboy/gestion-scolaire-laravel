@@ -47,3 +47,7 @@ Route::get("/accueil",function(){
 Route::get("/footer",function(){
     return view("footer");
 });
+
+Route::get("/login",function(){
+    return view("auth.login");
+});
