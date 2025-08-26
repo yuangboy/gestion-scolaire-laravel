@@ -10,6 +10,21 @@ class UserController extends Controller
 
 // Premire methode
 {
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
     // public function getAllUsers(Request $request) {
 
     //     $users = User::all();

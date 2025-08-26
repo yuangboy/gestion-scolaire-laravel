@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\GuardianController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -38,3 +39,19 @@ Route::get("/user-guardian",[UserController::class,'searchGuardian']);
 //Route parent
 
 Route::get("/create-guardian",[GuardianController::class,'createGuardian']);
+
+
+// Route authentification
+
+
+Route::get("/register",[AuthController::class,'registerView']);
+Route::post("/register",[AuthController::class,'register'])->name('register');
+
+
+
+Route::get("/login",[AuthController::class,'loginView'])->name('login.view');
+Route::post("/login",[AuthController::class,'login']);
+
+
+Route::get("/logout",[AuthController::class,'logoutView']);
+Route::post("/logout",[AuthController::class,'logout']);
