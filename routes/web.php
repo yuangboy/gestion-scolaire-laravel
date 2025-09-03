@@ -19,12 +19,15 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
+    return view('home');
+})->name('home');
+Route::get('/about', function () {
+    return view('about');
+})->name('about');
+Route::get('/contact', function () {
+    return view('contact');
+})->name('contact');
 
-Route::get('/aa', function () {
-    return view('welcome');
-});
 
 
 //Route User
@@ -47,3 +50,11 @@ Route::get("/create-Student",[StudentController::class,'createStudent']);
 
 // Route professeur
 Route::get("/create-Teacher",[TeacherController::class,'createTeacher']);
+
+
+Route::get("/register",[AuthController::class,'registerView'])->name('register.view');
+Route::post("/register",[AuthController::class,'register'])->name('register');
+
+Route::get("/login",[AuthController::class,'loginView'])->name('login.view');
+Route::post("/login",[AuthController::class,'login'])->name('login');
+
