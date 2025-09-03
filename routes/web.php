@@ -51,7 +51,6 @@ Route::get("/create-Student",[StudentController::class,'createStudent']);
 // Route professeur
 Route::get("/create-Teacher",[TeacherController::class,'createTeacher']);
 
-
 Route::get("/register",[AuthController::class,'registerView'])->name('register.view');
 Route::post("/register",[AuthController::class,'register'])->name('register');
 
